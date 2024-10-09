@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        html,body{
+        html, body {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -13,30 +13,62 @@
             justify-content: center;
             align-items: center;
         }
-        .a{
-            position : fixed;
-            z-index : -9999;
-            width : 100%;
-            height : 100vh;
+
+        .a {
+            position: fixed;
+            z-index: -9999;
+            width: 100%;
+            height: 100vh;
             object-fit: cover;
         }
-        .q {
+
+        /*命名写规范点，这里的q名字改成card，通俗易懂*/
+        /*卡片样式*/
+        .card {
             width: 60%;
             height: 30%;
             border: 1px solid white;
             background-color: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(1px);
             border-radius: 77px;
+
+            /*flex布局的排序只会作用在子元素，此处内部的标题是该卡片的子元素*/
+            /*所以这里如果想做到置顶居中的效果，交叉轴不应该也居中(center)，因此底下交叉轴代码进行注释*/
+            display: flex;
+            justify-content: center;
+            /*align-items: center;*/
+
+            font-size: 10px;
+            color: white;
+        }
+
+        /*卡片容器*/
+        /*新建该css类也是同理，因为flex布局的排列只会作用子元素*/
+        /*此处目的是为了居中卡片本身，而不是卡片内的子元素，因此要在卡片之上套一层父容器*/
+        /*由父容器决定子容器的位置，也就是卡片的位置*/
+        .card-container {
+            width: 100%;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        /*卡片标题文本*/
+        .card-title-text {
+            /*字体大小*/
             font-size: 10px;
-            color: white;
         }
     </style>
 </head>
 <body>
-    <img src="./picture/tu-pian.png" class="a">
-    <div class="q"><h1>简易计数器 </h1></div>
+<img class="a" src="./picture/tu-pian.png">
+
+<div class="card-container">
+    <div class="card">
+        <div class="card-title-text">简易计数器</div>
+        <!--            <h1>简易计数器 </h1>-->
+    </div>
+</div>
 </body>
 </html>
