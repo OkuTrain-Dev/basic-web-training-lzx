@@ -37,11 +37,9 @@
             display: flex;
             justify-content: center;
             /*align-items: center;*/
-
             font-size: 10px;
             color: white;
         }
-
         /*卡片容器*/
         /*新建该css类也是同理，因为flex布局的排列只会作用子元素*/
         /*此处目的是为了居中卡片本身，而不是卡片内的子元素，因此要在卡片之上套一层父容器*/
@@ -57,18 +55,56 @@
         /*卡片标题文本*/
         .card-title-text {
             /*字体大小*/
-            font-size: 10px;
+            font-size: 25px;
+            color: black;
+            text-align: center;
         }
+
+        .card p{
+            font-size: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(1px);
+            border-radius: 1rem;
+        }
+
+        .button {
+            border-radius: 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: rgba(0, 0, 0, 0.16) 2px 2px 5px;
+            padding: 0.5rem 1rem;
+            display: flex;
+        }
+
+        #Counter-Text{
+            font-size: 25px ;
+            margin-top:5px ;
+            display: flex;
+            width: 380px;
+        }
+        /*卡片内容*
+         */
     </style>
 </head>
 <body>
 <img class="a" src="./picture/tu-pian.png">
-
 <div class="card-container">
     <div class="card">
-        <div class="card-title-text">简易计数器</div>
+        <div class="card-title-text">简易计数器
+            <button class="my-2 button" id="CounterButton">Count+1</button>
+            <div id="Counter-Text">number: 0</div>
+        </div>
         <!--            <h1>简易计数器 </h1>-->
     </div>
 </div>
+<script>
+    let Count = 0
+    const CounterButton = document.getElementById('CounterButton');
+    const CounterText = document.getElementById('Counter-Text');
+    CounterButton.onclick = () => {
+        Count += 1;
+    }
+</script>
 </body>
 </html>
+
